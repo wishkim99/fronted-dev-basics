@@ -1,0 +1,51 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>마진과 패딩</title>
+<style type="text/css">
+	*{margin: 0px; padding: 0px}
+body {
+	font-family: "돋움", "맑은 고딕";
+	font-size: 0.8em;
+	color: #333;
+}
+
+.box1 {
+	border: 1px solid #666;
+	width: 300px;
+	background-color: #FFC;
+	
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	
+	padding: 10px 20px 30px 40px; /*TRBL로 위의 네 줄이 의미없어짐*/
+	padding: 10px 20px 30px; /*T (R,L이 같은 경우) B */
+	padding: 10px 20px; /* (T,B) (R,L)=> 상하좌우 대칭 */
+	padding: 10px 20px; /* (T,B, R,L)*/
+	margin: 100px auto 300px auto;
+	margin: 100px auto 300px;
+	margin: 100px auto;
+}
+</style>
+<script>
+i=10;
+s="hello";
+f=function(){ /*f가 객체=> 함수를 정의하는 2번째 방법*/
+	console.log("time out");
+}
+
+console.log("1");
+setTimeout(f, 2000); /*f 함수는 콜백, Time out은 비동기함수*/
+console.log("2");
+</script>
+</head>
+
+<body>
+	<div class="box1">
+		CSS에서 가장 보편적이고 많이 사용하는 마진과 패딩에 대한 값이 어떻게 적용되는지 확인해 보겠습니다.
+	</div>
+</body>
+</html>
