@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+* {
+	margin : 0;
+	padding : 0;
+}
+body {
+	font-family : "맑은 고딕", "돋움";
+	font-size : 0.75em;
+	color : #333;
+}
+
+.header {
+	width : 780px;
+	height : 100px;
+	margin : 50px auto;
+	background-color : #000
+	
+}
+.header .logo, .header .search-box {
+	float : left;
+}
+
+.header .logo {
+	font-size : 0;
+	width : 222px;
+	height : 52px;
+	background : #fff url("/ch03/images/nsplite.png") no-repeat 0 -158px / 457px 434px;
+}
+
+.search-box {
+	width : 530px;
+	height : 52px;
+	margin-right : 20px;
+	float : right;
+}
+
+.search {
+	width : 450px;
+	height : 55px;
+	border : 2px solid 19ce60;
+	background-color : #fff;
+}
+
+.search-box input, .search {
+	display : block;
+	float : left;
+}
+
+.search-box input, .search-box .btn-search, .search-box a, .search {
+	float : right;
+}
+
+.search-box input {
+	width : 360px;
+	height : 52px;
+	border : none;
+	outline : 0;
+	font-size:18px;
+}
+
+.search-box #keyboard {
+	margin : 20px 0 0 0;   
+	font-size : 0;
+	width : 20px;
+	height : 12px;
+	background : url("/ch03/images/nsplite.png") no-repeat -420px -395px / 457px 434px;
+	background-color : #fff;
+}
+
+.search-box #dropdown {
+	margin : 23px;
+	font-size : 0;
+	width : 10px;
+	height : 5px;
+	background : url("/ch03/images/nsplite.png") no-repeat -408px -77px / 457px 434px;
+}
+
+.btn-search {
+	
+	width : 50px;
+	height : 55px;
+	border : 2px solid #19ce60;
+	background-color : #19ce60;
+	z-index:100;
+}
+
+.btn-search button {
+	margin : 15px;
+	font-size : 0;
+	width : 22px;
+	height : 22px;
+	background : url("/ch03/images/nsplite.png") no-repeat -420px 0px / 457px 434px;
+	background-color : #19ce60;
+	border : none;
+}
+
+.search {
+	border : 2px solid #19ce60;
+}
+
+</style>
+</head>
+<body>
+	<div class = "header">
+		<h1 class = "logo">네이버</h1>
+		<form class = "search-box">
+				<div class = "btn-search">
+					<button>돋보기</button>
+				</div>
+				<div class = "search">
+					<a href = "#" id = "dropdown">드롭다운</a>
+					<a href = "#" id = "keyboard">키보드</a>
+					<input type = "text" />
+				</div>
+		</form>
+	</div>
+</body>
+</html>
