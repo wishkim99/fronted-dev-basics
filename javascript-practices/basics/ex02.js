@@ -18,7 +18,9 @@
         Boolean()=> object type
         Object()=> object type
         Array()=> object type
-    2.  {} 객체 리터럴, J(ava) S(cript) O(bject) N(otation)
+        Date()=> object Type
+        Function()=> object type
+    2. {} 객체 리터럴, J(ava) S(cript) O(bject) N(otation)
     3. [] 배열 리터럴
     4. null
 
@@ -41,7 +43,7 @@
     - 호스트 환경이 노드(node.js): os, http, fs, path, ...
 
 3. 사용자 객체
-    자바스크립트 엔진이 실행되면서 생성되는 객체들,,,
+    자바스크립트 엔진이 실행되면서 생성되는 객체들...
 */
 console.log("===기본타입(primitive, 원시)]====================")
 var u=undefined; //var u; 동일, 선언과 정의의 구분이 없다.
@@ -94,7 +96,7 @@ f();
 
 var o= new f();
 
-console.log("===객체2: function type]==========================")
+console.log("===객체2: function type==========================")
 function f1(a,b){
     return a+b;
 }
