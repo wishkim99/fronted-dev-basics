@@ -55,12 +55,12 @@ o4.displayInfo=function(){
 
 var i=10;
 i.displayInfo=function(){
-    
+
 }
 
 //XmlHttpRequest 호스트(브라우저) 객체를 사용해서 통신(AJAX)에서 데이터 교환의 포맷으로 JSON을 사용
 
-var responser='{name: "둘리", age:10, email: "dooly@gmail.com"}';
+var response='{name: "둘리", age:10, email: "dooly@gmail.com"}';
 var userVo=eval("("+response+ ")");
 
 console.log(userVo.name, userVo.age, userVo.email);
