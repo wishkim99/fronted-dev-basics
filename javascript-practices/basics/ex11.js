@@ -59,3 +59,4 @@ console.log(a2, a1);
 var a1=[0,1,2,3,4];
 var a2=al.splice(1,0.10);
 console.log(a2, a1);
+
