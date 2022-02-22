@@ -1,5 +1,6 @@
 /**
- * Array 메소드(Array.prototype)
+ * Array 객체 메소드(Array.prototype.*)
+ * 타입은 object인데 array 인스턴스이다
  */
 var colors=['black', 'white', 'yellow'];
 var fruits=['apple', 'mango', 'banana'];
