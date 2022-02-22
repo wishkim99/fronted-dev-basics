@@ -35,3 +35,4 @@ f2.apply(o, ['hi', 'again']); //apply는 파라미터를 받음
 // f2.call(o, 'hi');
 
 //bind는 받아놓고 나중에 실행할때
+
