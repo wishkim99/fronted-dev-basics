@@ -3,6 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+window.addEventListener("load", function(){
+	var imgElement=document.createElement('img');
+	
+	//(표준[property 맞음]+비표준[property가 아님])) 속성(attribute)을 읽기/쓰기 위해서 setAttribute/getAttribute를 사용한다.
+	imgElement.setAttribute('src','https://cgeimage.commutil.kr/phpwas/restmb_allidxmake.php?idx=3&simg=20210113144037026478a9710824910624586229.jpg');
+	imgElement.setAttribute('style', 'width:200px');
+	imgElement.setAttribute('alt',"루피~");
+	imgElement.setAttribute('title',"루피만세~!!!");
+	
+	imgElement['no']=10; //property(html element에 붙어있는 속성)
+	imgElement.setAttribute('data-name','kickscar'); //비표준 속성은 property가 아님
+	// 비표준 속성 사용시 data-prefix를 달아준다.-> property가 됨
+	
+	//attribute는 다 property, 태그에 붙어있는 속성
+	//setter, getter는 attribute에만 쓸 수 있음
+	//property는 객체에다 바로 사용
+	//img src alt style 빼고 다 비표준
+	
+	setTimeout(function(){
+		document.body.appendChild(imgElement);
+		console.log(imgElement['no']/*property*/, imgElement.getAttribute('no') /*attribute*/);
+		console.log(imgElement.alt, imgElement['data-name'], imgElement.getAttribute('data-name'));
+		
+	}, 2000);
+});
+</script>
 </head>
 <body>
 	<h1>DOM(Document Object Model)</h1>
