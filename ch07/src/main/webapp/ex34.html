@@ -56,7 +56,8 @@
 		name : "튤립",
 		file : "Tulips.jpg"
 	} ]
-
+	var check= true;
+	
 	var changeImage = function() {
 		var index = Math.floor(Math.random() * images.length);
 		$(".image-viewer img").attr({
@@ -65,38 +66,45 @@
 		});
 	}
 
-	var slideImage = function() {
+	let startSlide=null;
+	/* setInterval(function() {//callback 함수중 하나로 일정시간마다 함수 실행
+		var index = Math.floor(Math.random() * images.length);
+		console.log(index);
+		$(".image-viewer img").attr({
+			alt : images[index].name,
+			src : 'images/' + images[index].file
+		});
 		
-		if( 
-		$("#btn-slideshow").html() == "슬라이드쇼 시작"){
-			$("#btn-slideshow").html('슬라이드쇼 중지');
-		setInterval(function(){//callback 함수중 하나로 일정시간마다 함수 실행
-				var index = Math.floor(Math.random() * images.length);
-				console.log(index);
-				$(".image-viewer img").attr({
-					alt : images[index].name,
-					src : 'images/' + images[index].file
-					});
-		}, 1000);	
+	}, 1000); */
+
+	
+
+	var slideImage = function() {
+		console.log(check);
+		if (check) {
+			check=false;
+			startSlide=setInterval(changeImage,1000);
+			$("#btn-slideshow").text('슬라이드쇼 중지');
+/* 			$("#btn-slideshow").replaceWith('<button id="btn-slideshow">슬라이드쇼 중지</button>'); */
 		} else{
-			//슬라이드쇼 멈춰
-			$("#btn-slideshow").html('슬라이드쇼 시작');
-			$('#btn-slideshow').off("click",slideImage);
+			check=true;
+			clearInterval(startSlide);
+			$("#btn-slideshow").text('슬라이드쇼 시작')
+	/* 		$("#btn-slideshow").replaceWith('<button id="btn-slideshow">슬라이드쇼 시작</button>'); */
 			
 		}
-	
-			
-		
 	}
 
 	$(function() { //처음 브라우저 실행했을 때 init이랑 동일
 		$('#btn-change').click(changeImage);
 		$('img').click(changeImage); //이미지 클릭시 랜덤변경
 		changeImage();
-
-		$('#btn-slideshow').on("click",slideImage);
+		$('#btn-slideshow').click(slideImage);
 
 	});
+	
+	
+	
 </script>
 </head>
 <body>
