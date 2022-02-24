@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="jquery/jquery-simple.js"></script>
+<script>
+$(function() {
+	var $obj = $(".par");
+	console.log($obj.length); //2, 배열은 아님
+	console.log(typeof($obj)+":"+($obj instanceof Array)); //유사배열
+	console.log($obj[0]); //HTMLElement에 접근가능, 배열요소 인덱스로 접근, 형변환이 일어날 수 있음
+	console.log($obj.get(0)); //HTMLElement에 접근가능, 메소드로 접근
+	
+	$obj.css('color', 'red');
+	$obj.click(function(){
+		//이벤트 핸들러에서의 this는 jQuery Object가 아닌 HTMLElement 다.
+		console.log("clicked: "+ this); //obj는 배열이고 element로 많이가지고 있기 때문에 this아님
+		
+		//만약, 핸들러 안에서 이벤트 대상이 되는 this(HTMLElement)의 CSS, DOM 조작을 해야할 경우,
+		//this.style.color='blue';
+		$(this).css('color', 'blue');
+		
+		//jQuery Object의 거의 모든 API함수(예외: traverse 함수들)는 호출한 jQuery Object를 반환한다.
+		//함수 체인(chain)이 가능하다.
+		$(this)
+			.css('text-decoration', 'underline')
+			.text('클릭!!!!');		
+	});
+});
+</script>
+</head>
+<body>
+	<h1 id="header">Simple jQuery 만들기1</h1>
+	
+	<p class='par'>문장1</p>
+	<p>문장2</p>
+	<p  class='par'>문장3</p>
+	<p>문장4</p>
+</body>
+</html>
+ 
