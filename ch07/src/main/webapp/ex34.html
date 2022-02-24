@@ -3,11 +3,100 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>sample1</title>
-<link href='image-viewer.css' type='text/css' rel="stylesheet"/>
+<link href='image-viewer.css' type='text/css' rel="stylesheet" />
 <script type="text/javascript" src="./jquery/jquery-3.6.0.js"></script>
-<script type="text/javascript" src="image-viewer.js"></script>
+<!-- <script type="text/javascript" src="image-viewer.js"></script> -->
 <script>
-	imageViewer.init();
+	//imageViewer.init();
+	/*
+	 * 1. 이미지에 click을 했을 때도 이미지가 랜덤하게 바뀌게 끔-ok
+	 2. 슬라이드 쇼
+	 - 버튼이 '슬라이드쇼 중지'로 바뀌기-ok
+	 - 3초 간격으로 이미지가 랜덤하게 바뀜
+	 - 버튼을 누르면 슬라이드 쇼를 중지
+	 - 버튼이 '슬라이드 쇼 시작' 바뀌기
+	 3. imageViewer object(image-viewer.js)로 캡슐화 시키기(2번까지만이라도 잘하면 됨) 
+	 */
+	var images = [ {
+		name : "국화",
+		file : "Chrysanthemum.jpg"
+	},
+
+	{
+		name : "사막",
+		file : "Desert.jpg"
+	},
+
+	{
+		name : "수국",
+		file : "Hydrangeas.jpg"
+	},
+
+	{
+		name : "해파리",
+		file : "Jellyfish.jpg"
+	},
+
+	{
+		name : "코알라",
+		file : "Koala.jpg"
+	},
+
+	{
+		name : "등대",
+		file : "Lighthouse.jpg"
+	},
+
+	{
+		name : "펭귄",
+		file : "Penguins.jpg"
+	},
+
+	{
+		name : "튤립",
+		file : "Tulips.jpg"
+	} ]
+
+	var changeImage = function() {
+		var index = Math.floor(Math.random() * images.length);
+		$(".image-viewer img").attr({
+			alt : images[index].name,
+			src : 'images/' + images[index].file
+		});
+	}
+
+	var slideImage = function() {
+		
+		if( 
+		$("#btn-slideshow").html() == "슬라이드쇼 시작"){
+			$("#btn-slideshow").html('슬라이드쇼 중지');
+		setInterval(function(){//callback 함수중 하나로 일정시간마다 함수 실행
+				var index = Math.floor(Math.random() * images.length);
+				console.log(index);
+				$(".image-viewer img").attr({
+					alt : images[index].name,
+					src : 'images/' + images[index].file
+					});
+		}, 1000);	
+		} else{
+			//슬라이드쇼 멈춰
+			$("#btn-slideshow").html('슬라이드쇼 시작');
+			$('#btn-slideshow').off("click",slideImage);
+			
+		}
+	
+			
+		
+	}
+
+	$(function() { //처음 브라우저 실행했을 때 init이랑 동일
+		$('#btn-change').click(changeImage);
+		$('img').click(changeImage); //이미지 클릭시 랜덤변경
+		changeImage();
+
+		$('#btn-slideshow').on("click",slideImage);
+
+	});
 </script>
 </head>
 <body>
@@ -17,7 +106,7 @@
 			<button id="btn-slideshow">슬라이드쇼 시작</button>
 		</div>
 		<div>
-			<img/>
+			<img />
 		</div>
 	</div>
 </body>
