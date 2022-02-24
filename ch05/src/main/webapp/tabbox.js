@@ -17,6 +17,6 @@ var tabBox = {
 		this.className='selected';
 	},
 	init: function() {
-		window.addEventListener('load', this._onWindowLoad.bind(this));
+		window.addEventListener('load', this._onWindowLoad.bind(this)); //this라는 것을 가져옴 ,  this는 tabbox
 	}	
 }

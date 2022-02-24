@@ -13,10 +13,12 @@ var registerEventHandler =  function(element, eventName, eventHandler){
 		element.addEventListener
 	}*/
 	
+	//옛날버전
 	element && //element가 null이 아니면 
-	element.attachEvent && //<=IE8 밑인지 검증(true가 나오면 IE8 이상)
+	element.attachEvent && //<=IE8 밑인지 검증(true가 나오면 IE8(internet explorer8) 이상)
 	element.attachEvent('on'+eventName, eventHandler); //undefined면 false
 	
+	//최신버전 (이벤트 불러옴)
 	element && //element가 null이 아니면 
 	element.addEventListener && //표준 브라우저
 	element.addEventListener(eventName, eventHandler);
