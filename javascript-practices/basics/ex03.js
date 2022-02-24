@@ -32,4 +32,4 @@ console.log("===========================================================");
 console.log("2"===2);
 console.log(true===1);
 console.log(2===4);
-console.log(new Number(4)===new Number(4)); //객체의 동일성에서 어긋남
+console.log(new Number(4)===new Number(4)); //객체의 동일성에서 어긋남(주소까지 고려)

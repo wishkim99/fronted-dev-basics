@@ -7,7 +7,7 @@
 -undefined
 -number
 -string
--booolean
+-boolean
 
 
 [객체] 
@@ -25,7 +25,7 @@
     4. null
 
 - function
-    1. funcntion f(){...}
+    1. function f(){...}
     2. var f=function(){...}
     3. var f= new Function(...);
 */

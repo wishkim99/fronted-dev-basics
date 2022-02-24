@@ -36,28 +36,15 @@ ul, ol			{ list-style-type: none }
 	margin-top: -1px;
 }
 </style>
+<script type="text/javascript" src="./jquery/jquery-3.6.0.js"></script>
 <script type="text/javascript">
-// DOM Event Model Level0: basic: HTMLElement 의 Event Attribute에 Event Handler(함수)를 설정하는 방식
-// JavaScript Code(DOM API) 로만 작성하기
-var onTabClicked = function() {
-	//unselected
-	var lisSelected = document.getElementsByClassName("selected"); //var lisSelected는 배열
-	(lisSelected.length === 1) && (lisSelected[0].className = ""); //이미 하나가 선택되어있으면 다른거 select시 원래있던거 선택이 안되어짐
-	
-	// select
-	this.className='selected';
-}
-
-window.onload = function() {
-	var divTabBox = document.getElementsByClassName("tab-box")[0];
-	var ul = divTabBox.childNodes[1]; //64와 65번째 코드 사이의 공백이 불러짐
-	
-	var liTabs = ul.getElementsByTagName("li"); //ul안에 li라는 태그name을 가진 배열을 가져옴
-	
-	for(var i = 0; i < liTabs.length; i++) { 
-		liTabs[i].onclick = onTabClicked;
-	}
-}
+$(function(){
+	$("ul li").click(function(){
+		$("ul li").removeClass("selected");
+		$(this).addClass("selected");
+		
+	})
+});
 </script>
 </head>
 <body>
