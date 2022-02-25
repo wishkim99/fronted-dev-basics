@@ -1,13 +1,13 @@
 var imageViewer = { //객체
 	init: function() {
-		$(function() {
-			$("#btn-change").click(this._changeImage.bind(this));
+		$(function() { 
+			$("#btn-change").click(this._changeImage.bind(this)); //10번째 코드에서 불러온 bind(this)를 쓰기 위함
 			$(".image-viewer img").click(this._changeImage.bind(this));
 			$("#btn-slideshow").click(this._slideImage.bind(this));
 
 			// 첫 번째 이미지 선택
 			this._changeImage();
-		}.bind(this));
+		}.bind(this)); //imabeViewer 객체 안에서 아래 함수들을 쓰기 위함
 
 	},
 
