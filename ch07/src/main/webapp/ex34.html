@@ -66,31 +66,18 @@
 		});
 	}
 
-	let startSlide=null;
-	/* setInterval(function() {//callback 함수중 하나로 일정시간마다 함수 실행
-		var index = Math.floor(Math.random() * images.length);
-		console.log(index);
-		$(".image-viewer img").attr({
-			alt : images[index].name,
-			src : 'images/' + images[index].file
-		});
-		
-	}, 1000); */
-
-	
+	//let startSlide=null;
 
 	var slideImage = function() {
 		console.log(check);
 		if (check) {
 			check=false;
-			startSlide=setInterval(changeImage,1000);
+			startSlide=setInterval(changeImage,3000);
 			$("#btn-slideshow").text('슬라이드쇼 중지');
-/* 			$("#btn-slideshow").replaceWith('<button id="btn-slideshow">슬라이드쇼 중지</button>'); */
 		} else{
 			check=true;
 			clearInterval(startSlide);
 			$("#btn-slideshow").text('슬라이드쇼 시작')
-	/* 		$("#btn-slideshow").replaceWith('<button id="btn-slideshow">슬라이드쇼 시작</button>'); */
 			
 		}
 	}
