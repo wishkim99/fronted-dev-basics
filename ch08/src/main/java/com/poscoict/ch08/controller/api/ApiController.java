@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.poscoict.ch08.controller.dto.JsonResult;
+import com.poscoict.ch08.controller.dto.XmlResult;
 import com.poscoict.ch08.controller.vo.GuestbookVo;
 
 @Controller
@@ -24,7 +25,18 @@ public class ApiController {
 	public String html() {
 		return "<h1>AJAX 연습</h1><p>HTML 데이터</p>";
 	}
-	
+
+	@ResponseBody
+	@RequestMapping("/xml")
+	public Object xml() {
+		XmlResult.GuestbookVo vo = new XmlResult.GuestbookVo();
+		vo.setNo(1L);
+		vo.setName("둘리");
+		vo.setMessage("호이~");
+		
+		return XmlResult.success(vo);
+	}
+
 	@ResponseBody
 	@RequestMapping(value="/json", method=RequestMethod.GET)
 	public Object json() {
@@ -33,34 +45,31 @@ public class ApiController {
 		vo.setName("둘리");
 		vo.setMessage("호이~");
 		
-//		JsonResult jsonResult=new JsonResult();
-//		jsonResult.setResult("ok");
-
 		return JsonResult.success(vo);
-	
-		//return JsonResult.fail("Exception........");
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(value="/post01", method=RequestMethod.POST)
-	public Object post01(GuestbookVo vo) {
+	public JsonResult post01(GuestbookVo vo) {
 		System.out.println(vo);
-		//service->respository:DB insert 성공한 후,
-		vo.setNo(1L);
-		vo.setPassword("");
 		
-		return JsonResult.success(vo);
-	}
-	
-	@ResponseBody
-	@RequestMapping(value="/post02", method=RequestMethod.POST)
-	public Object post02(@RequestBody GuestbookVo vo) {
-		System.out.println(vo);
-		//service->respository:DB insert 성공한 후,
+		// service -> respository: DB insert 성공한 후,
 		vo.setNo(1L);
 		vo.setPassword("");
 		
 		return JsonResult.success(vo);
 	}
 
+	@ResponseBody
+	@RequestMapping(value="/post02", method=RequestMethod.POST)
+	public JsonResult post02(@RequestBody GuestbookVo vo) {
+		System.out.println(vo);
+		
+		// service -> respository: DB insert 성공한 후,
+		vo.setNo(1L);
+		vo.setPassword("");
+		
+		return JsonResult.success(vo);
+	}
+	
 }
