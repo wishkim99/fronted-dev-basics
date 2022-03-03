@@ -68,7 +68,7 @@ public class GuestbookController {
 		data=-1L; //-1이 아닌경우 해당되는 li메시지 삭제하기
 		
 		//2. 삭제가 된 경우
-		//data=no;
+		data=no;
 		
 		return JsonResult.success(data);
 	}
