@@ -1,4 +1,4 @@
-module.exports={
+module.exports={ //외부파일에 접근가능
     n:10,
     s:'javascript module',
     o:{}
