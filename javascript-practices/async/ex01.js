@@ -33,3 +33,13 @@ ex01('param-error', function(error, res){
 
 
 console.log("wait....");
+
+res1=fetch();
+if(res1=='error'){
+    end();
+}
+
+res2=fetch();
+if(res2=='error'){
+    end();
+}
